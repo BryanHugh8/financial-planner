@@ -2,13 +2,11 @@
 
 @section('content')
     <div class="space-y-6">
-        <!-- Header -->
         <div class="flex justify-between items-center">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Financial Goals</h2>
             <a href="{{ route('goals.create') }}" class="btn-primary">Create New Goal</a>
         </div>
 
-        <!-- Goals Grid -->
         @if($goals->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($goals as $goal)
@@ -27,7 +25,6 @@
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{{ $goal->description }}</p>
                         @endif
 
-                        <!-- Progress -->
                         <div class="mb-4">
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-600 dark:text-gray-400">Progress</span>
@@ -38,7 +35,6 @@
                             </div>
                         </div>
 
-                        <!-- Amount Info -->
                         <div class="space-y-2 mb-4">
                             <div class="flex justify-between">
                                 <span class="text-sm text-gray-600 dark:text-gray-400">Current:</span>
@@ -54,7 +50,6 @@
                             </div>
                         </div>
 
-                        <!-- Date Info -->
                         <div class="mb-4">
                             <div class="flex justify-between items-center">
                                 <span class="text-sm text-gray-600 dark:text-gray-400">Target Date:</span>
@@ -73,7 +68,6 @@
                             @endif
                         </div>
 
-                        <!-- Actions -->
                         <div class="flex gap-2">
                             <a href="{{ route('goals.show', $goal) }}" class="btn-secondary text-sm flex-1 text-center">View</a>
                             @if($goal->status !== 'completed')

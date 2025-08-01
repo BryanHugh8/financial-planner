@@ -36,7 +36,6 @@
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-<!-- Custom Navigation -->
 <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
@@ -47,7 +46,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Links -->
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
                     <a href="{{ route('dashboard') }}"
@@ -70,10 +68,7 @@
             </div>
 
 
-            <!-- Right Side -->
             <div class="flex items-center space-x-4">
-                <!-- Theme Toggle -->
-                <!-- Theme Toggle -->
                 <button id="theme-toggle"
                         class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
@@ -84,7 +79,6 @@
                     </svg>
                 </button>
 
-                <!-- User Dropdown -->
                 <div class="relative" x-data="{ open: false }" @click.away="open = false">
                     <button @click="open = !open" class="flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-primary-500">
                         <div class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-full flex items-center justify-center">
@@ -92,7 +86,6 @@
                         </div>
                     </button>
 
-                    <!-- Dropdown Menu -->
                     <div x-show="open"
                          x-transition:enter="transition ease-out duration-200"
                          x-transition:enter-start="transform opacity-0 scale-95"
@@ -103,14 +96,11 @@
                          class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 z-50">
 
                         <div class="py-2">
-                            <!-- User Info -->
                             <div class="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
                                 <p class="text-sm font-medium text-gray-900 dark:text-white">{{ auth()->user()->name }}</p>
                                 <p class="text-sm text-gray-500 dark:text-gray-400 truncate">{{ auth()->user()->email }}</p>
                             </div>
 
-                            <!-- Menu Items -->
-                            <!-- Menu Items -->
                             <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -133,13 +123,11 @@
                     </div>
                 </div>
 
-                <!-- Remove the separate logout button since it's now in the dropdown -->
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Main Content -->
 <main class="py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         @if (session('success'))
@@ -158,15 +146,11 @@
     </div>
 </main>
 
-<!-- Theme Toggle Script -->
-<!-- Theme Toggle Script -->
 <script>
-    // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-    // Check for saved theme preference or default to 'light'
     const currentTheme = localStorage.getItem('theme') || 'light';
 
     if (currentTheme === 'dark') {

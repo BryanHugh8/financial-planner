@@ -12,7 +12,6 @@
                 @csrf
 
                 <div class="space-y-6">
-                    <!-- Amount -->
                     <div>
                         <label for="amount" class="form-label">Amount (Rp)</label>
                         <input type="text"
@@ -28,7 +27,6 @@
                         @enderror
                     </div>
 
-                    <!-- Description -->
                     <div>
                         <label for="description" class="form-label">Description</label>
                         <input type="text"
@@ -43,7 +41,6 @@
                         @enderror
                     </div>
 
-                    <!-- Category -->
                     <div>
                         <label for="category_id" class="form-label">Category</label>
                         <select name="category_id" id="category_id" class="form-select" required>
@@ -59,7 +56,6 @@
                         @enderror
                     </div>
 
-                    <!-- Date -->
                     <div>
                         <label for="expense_date" class="form-label">Expense Date</label>
                         <input type="date"
@@ -73,7 +69,6 @@
                         @enderror
                     </div>
 
-                    <!-- Submit Button -->
                     <div class="flex gap-4">
                         <button type="submit" class="btn-primary flex-1">Add Expense</button>
                         <a href="{{ route('dashboard') }}" class="btn-secondary flex-1 text-center">Cancel</a>
@@ -84,7 +79,6 @@
     </div>
 
     <script>
-        // Number formatting for amount input
         document.addEventListener('DOMContentLoaded', function() {
             const amountInput = document.getElementById('amount');
             const amountRawInput = document.getElementById('amount_raw');
@@ -100,17 +94,14 @@
             amountInput.addEventListener('input', function(e) {
                 let value = e.target.value;
 
-                // Remove all non-digit characters
                 value = value.replace(/[^\d]/g, '');
 
-                // Format the number with dots as thousands separators
                 if (value) {
                     value = formatNumber(value);
                 }
 
                 e.target.value = value;
 
-                // Store the raw value for form submission
                 amountRawInput.value = unformatNumber(value);
             });
 

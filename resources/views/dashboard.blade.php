@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="space-y-8">
-        <!-- Dashboard Header -->
         <div class="flex justify-between items-center">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Financial Dashboard</h2>
             <div class="flex gap-3">
@@ -11,23 +10,19 @@
             </div>
         </div>
 
-        <!-- Summary Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Monthly Expenses -->
             <div class="card">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">This Month</h3>
                 <p class="text-3xl font-bold text-blue-600 dark:text-blue-400">Rp {{ number_format($monthlyExpenses ?? 0, 0, ',', '.') }}</p>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Total Expenses</p>
             </div>
 
-            <!-- Budget Status -->
             <div class="card">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Budget Status</h3>
                 <p class="text-3xl font-bold text-green-600 dark:text-green-400">{{ $budgets->count() ?? 0 }}</p>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Active Budgets</p>
             </div>
 
-            <!-- Financial Goals -->
             <div class="card">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Goals</h3>
                 <p class="text-3xl font-bold text-purple-600 dark:text-purple-400">{{ $goals->count() ?? 0 }}</p>
@@ -35,9 +30,7 @@
             </div>
         </div>
 
-        <!-- Quick Actions -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <!-- Quick Add -->
             <div class="card">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
                 <div class="space-y-3">
@@ -46,7 +39,6 @@
                 </div>
             </div>
 
-            <!-- Recent Expenses -->
             <div class="card">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Expenses</h3>
                 @if(isset($recentExpenses) && $recentExpenses->count() > 0)
@@ -71,7 +63,6 @@
             </div>
         </div>
 
-        <!-- Chart Container -->
         <div class="card">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Expense Categories</h3>
             <div class="chart-container" style="position: relative; height: 400px; width: 100%;">
@@ -80,7 +71,6 @@
         </div>
     </div>
 
-    <!-- Quick Add Modal with Number Formatting -->
     <div id="quickAddModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full">
@@ -125,14 +115,12 @@
             document.getElementById('quickAddModal').classList.add('hidden');
         }
 
-        // Close modal when clicking outside
         document.getElementById('quickAddModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeQuickAdd();
             }
         });
 
-        // Number formatting for quick add modal
         document.addEventListener('DOMContentLoaded', function() {
             const quickAmountInput = document.getElementById('quick-amount');
             const quickAmountRawInput = document.getElementById('quick-amount-raw');
@@ -149,10 +137,8 @@
                 quickAmountInput.addEventListener('input', function(e) {
                     let value = e.target.value;
 
-                    // Remove all non-digit characters
                     value = value.replace(/[^\d]/g, '');
 
-                    // Format the number with dots as thousands separators
                     if (value) {
                         value = formatNumber(value);
                     }
@@ -161,7 +147,6 @@
                     quickAmountRawInput.value = unformatNumber(value);
                 });
 
-                // Handle form submission
                 quickAmountInput.closest('form').addEventListener('submit', function(e) {
                     const rawValue = unformatNumber(quickAmountInput.value);
                     quickAmountRawInput.value = rawValue;

@@ -28,7 +28,6 @@ class BudgetController extends Controller
 
     public function store(Request $request)
     {
-        // Convert formatted amount to numeric BEFORE validation
         $request->merge([
             'limit_amount' => (float) str_replace('.', '', $request->limit_amount)
         ]);
@@ -40,7 +39,6 @@ class BudgetController extends Controller
             'category_id' => 'required|exists:categories,id'
         ]);
 
-        // Check if budget already exists for this category and month
         $existingBudget = Budget::where('user_id', Auth::id())
             ->where('category_id', $request->category_id)
             ->where('month', $request->month)
@@ -70,7 +68,6 @@ class BudgetController extends Controller
 
     public function edit(Budget $budget)
     {
-        // Check if user owns this budget
         if ($budget->user_id !== Auth::id()) {
             abort(403);
         }
@@ -81,12 +78,10 @@ class BudgetController extends Controller
 
     public function update(Request $request, Budget $budget)
     {
-        // Check if user owns this budget
         if ($budget->user_id !== Auth::id()) {
             abort(403);
         }
 
-        // Convert formatted amount to numeric BEFORE validation
         $request->merge([
             'limit_amount' => (float) str_replace('.', '', $request->limit_amount)
         ]);
@@ -110,7 +105,6 @@ class BudgetController extends Controller
 
     public function destroy(Budget $budget)
     {
-        // Check if user owns this budget
         if ($budget->user_id !== Auth::id()) {
             abort(403);
         }

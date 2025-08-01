@@ -32,7 +32,6 @@ class GoalController extends Controller
             'status' => 'required|in:active,paused,completed',
         ]);
 
-        // Convert formatted numbers to decimal
         $targetAmount = str_replace(['.', ','], ['', '.'], $request->target_amount);
         $currentAmount = $request->current_amount ? str_replace(['.', ','], ['', '.'], $request->current_amount) : 0;
 
@@ -50,7 +49,6 @@ class GoalController extends Controller
 
     public function show(Goal $goal)
     {
-        // Check if user owns this goal
         if ($goal->user_id !== auth()->id()) {
             abort(403);
         }
@@ -59,7 +57,6 @@ class GoalController extends Controller
 
     public function edit(Goal $goal)
     {
-        // Check if user owns this goal
         if ($goal->user_id !== auth()->id()) {
             abort(403);
         }
@@ -68,7 +65,6 @@ class GoalController extends Controller
 
     public function update(Request $request, Goal $goal)
     {
-        // Check if user owns this goal
         if ($goal->user_id !== auth()->id()) {
             abort(403);
         }
@@ -82,7 +78,6 @@ class GoalController extends Controller
             'status' => 'required|in:active,paused,completed',
         ]);
 
-        // Convert formatted numbers to decimal
         $targetAmount = str_replace(['.', ','], ['', '.'], $request->target_amount);
         $currentAmount = $request->current_amount ? str_replace(['.', ','], ['', '.'], $request->current_amount) : 0;
 
@@ -100,7 +95,6 @@ class GoalController extends Controller
 
     public function destroy(Goal $goal)
     {
-        // Check if user owns this goal
         if ($goal->user_id !== auth()->id()) {
             abort(403);
         }
@@ -110,7 +104,6 @@ class GoalController extends Controller
 
     public function addProgress(Request $request, Goal $goal)
     {
-        // Check if user owns this goal
         if ($goal->user_id !== auth()->id()) {
             abort(403);
         }

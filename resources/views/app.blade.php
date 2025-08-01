@@ -11,7 +11,6 @@
 </head>
 <body class="bg-gray-50 font-sans antialiased">
 <div class="min-h-screen">
-    <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -31,7 +30,6 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main class="py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             @if (session('success'))

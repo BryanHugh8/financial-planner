@@ -12,7 +12,6 @@
                 @csrf
 
                 <div class="space-y-6">
-                    <!-- Category -->
                     <div>
                         <label for="category_id" class="form-label">
                             Category
@@ -33,7 +32,6 @@
                         @enderror
                     </div>
 
-                    <!-- Budget Amount -->
                     <div class="mb-4">
                         <label for="limit_amount" class="form-label">Budget Amount (Rp)</label>
                         <input type="text"
@@ -45,7 +43,6 @@
                                required>
                     </div>
 
-                    <!-- Month -->
                     <div>
                         <label for="month" class="form-label">
                             Month
@@ -65,7 +62,6 @@
                         @enderror
                     </div>
 
-                    <!-- Year -->
                     <div>
                         <label for="year" class="form-label">
                             Year
@@ -85,7 +81,6 @@
                         @enderror
                     </div>
 
-                    <!-- Submit Button -->
                     <div class="flex gap-4">
                         <button type="submit" class="btn-primary flex-1">
                             Create Budget
@@ -104,10 +99,8 @@
             const limitAmountInput = document.getElementById('limit_amount');
 
             limitAmountInput.addEventListener('input', function(e) {
-                // Remove all non-digits
                 let value = e.target.value.replace(/[^\d]/g, '');
 
-                // Add dots as thousands separators
                 if (value) {
                     e.target.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                 } else {

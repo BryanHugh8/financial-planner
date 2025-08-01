@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="space-y-6">
-        <!-- Header -->
         <div class="flex items-center justify-between">
             <div>
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Edit Budget</h2>
@@ -16,13 +15,11 @@
             </a>
         </div>
 
-        <!-- Form -->
         <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 max-w-2xl">
             <form method="POST" action="{{ route('budgets.update', $budget) }}" class="space-y-6">
                 @csrf
                 @method('PUT')
 
-                <!-- Budget Amount -->
                 <div class="space-y-2">
                     <label for="limit_amount" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
                         Budget Amount
@@ -46,9 +43,7 @@
                     @enderror
                 </div>
 
-                <!-- Category & Month Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Category -->
                     <div class="space-y-2">
                         <label for="category_id" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
                             Category
@@ -74,7 +69,6 @@
                         @enderror
                     </div>
 
-                    <!-- Month -->
                     <div class="space-y-2">
                         <label for="month" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
                             Month
@@ -100,7 +94,6 @@
                     </div>
                 </div>
 
-                <!-- Year -->
                 <div class="space-y-2">
                     <label for="year" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
                         Year
@@ -125,7 +118,6 @@
                     @enderror
                 </div>
 
-                <!-- Buttons -->
                 <div class="flex flex-col-reverse sm:flex-row gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
                     <a href="{{ route('budgets.index') }}"
                        class="inline-flex justify-center items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors shadow-sm">

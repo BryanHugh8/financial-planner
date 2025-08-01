@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="space-y-8">
-        <!-- Header -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Budget Overview</h2>
@@ -20,11 +19,9 @@
         </div>
 
         @if($budgets->count() > 0)
-            <!-- Budget Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($budgets as $budget)
                     <div class="card hover:shadow-xl transition-shadow duration-300">
-                        <!-- Category Header -->
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
                                 <div class="w-3 h-3 rounded-full mr-3" style="background-color: {{ $budget->category->color ?? '#3B82F6' }}"></div>
@@ -35,7 +32,6 @@
                             </span>
                         </div>
 
-                        <!-- Amount Info -->
                         <div class="space-y-3 mb-4">
                             <div class="flex justify-between items-baseline">
                                 <span class="text-2xl font-bold text-gray-900 dark:text-white">
@@ -46,13 +42,11 @@
                                 </span>
                             </div>
 
-                            <!-- Progress Bar -->
                             <div class="progress-bar">
                                 <div class="progress-fill status-{{ $budget->status }}"
                                      style="width: {{ min($budget->usage_percentage, 100) }}%"></div>
                             </div>
 
-                            <!-- Percentage and Status -->
                             <div class="flex justify-between items-center">
                                 <span class="text-sm font-medium
                                     @if($budget->status === 'good') text-green-600 dark:text-green-400
@@ -74,7 +68,6 @@
                             </div>
                         </div>
 
-                        <!-- Status Badge -->
                         <div class="mb-4">
                             @if($budget->status === 'good')
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300">
@@ -107,7 +100,6 @@
                             @endif
                         </div>
 
-                        <!-- Actions -->
                         <div class="flex gap-2">
                             <a href="{{ route('budgets.edit', $budget) }}"
                                class="flex-1 text-center py-2 px-3 text-sm bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
@@ -127,14 +119,12 @@
                 @endforeach
             </div>
 
-            <!-- Pagination -->
             @if($budgets->hasPages())
                 <div class="mt-8">
                     {{ $budgets->links() }}
                 </div>
             @endif
         @else
-            <!-- Empty State -->
             <div class="card text-center py-16">
                 <div class="text-gray-400 dark:text-gray-600 mb-6">
                     <svg class="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">

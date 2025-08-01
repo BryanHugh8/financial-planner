@@ -13,7 +13,6 @@
                     @method('PUT')
 
                     <div class="space-y-6">
-                        <!-- Name -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Goal Name
@@ -30,7 +29,6 @@
                             @enderror
                         </div>
 
-                        <!-- Description -->
                         <div>
                             <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Description
@@ -45,7 +43,6 @@
                             @enderror
                         </div>
 
-                        <!-- Target Amount -->
                         <div>
                             <label for="target_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Target Amount
@@ -65,7 +62,6 @@
                             @enderror
                         </div>
 
-                        <!-- Current Amount -->
                         <div>
                             <label for="current_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Current Amount
@@ -84,7 +80,6 @@
                             @enderror
                         </div>
 
-                        <!-- Target Date -->
                         <div>
                             <label for="target_date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Target Date
@@ -101,7 +96,6 @@
                             @enderror
                         </div>
 
-                        <!-- Status -->
                         <div>
                             <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Status
@@ -119,7 +113,6 @@
                         </div>
                     </div>
 
-                    <!-- Form Actions -->
                     <div class="flex items-center justify-end space-x-3 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
                         <a href="{{ route('goals.index') }}"
                            class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
