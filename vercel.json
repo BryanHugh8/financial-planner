@@ -7,10 +7,6 @@
     },
     "routes": [
         {
-            "src": "/(css|js|images)/(.*)",
-            "dest": "/public/$1/$2"
-        },
-        {
             "src": "/build/(.*)",
             "dest": "/public/build/$1"
         },
@@ -18,9 +14,5 @@
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
-    ],
-    "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "false"
-    }
+    ]
 }
